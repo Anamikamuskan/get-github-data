@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github-data-fetch</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub User Finder</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <div class="container">
-        <h1>GitHub User Fetcher</h1>
+<body class="bg-gradient-to-br from-indigo-500 to-purple-600 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">GitHub User Finder</h1>
+    
+    <form class="flex gap-2 mb-6">
+      <input type="text" placeholder="Enter GitHub username" required autofocus
+        class="username flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+      <button type="submit"
+        class="submit bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
+        Search
+      </button>
+    </form>
+    
+    <div class="profile-card">
+      <img src="https://via.placeholder.com/120"
+           alt="Profile Picture"
+           class="w-28 h-28 rounded-full mx-auto shadow-lg mb-4 object-cover">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Username</h2>
+      
+      <div class="flex justify-around text-center text-gray-600 mb-4">
         <div>
-            <input type="text" id="username" placeholder="Enter GitHub username">
-            <input type="submit" id="submit" value="Fetch User">
+          <span class="block text-lg font-bold text-indigo-500">0</span>
+          Followers
         </div>
-
-        <div id="userData"></div>
+        <div>
+          <span class="block text-lg font-bold text-indigo-500">0</span>
+          Following
+        </div>
+        <div>
+          <span class="block text-lg font-bold text-indigo-500">0</span>
+          Repos
+        </div>
+      </div>
     </div>
-
+    
+    <div class="repos text-left">
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">Repositories</h3>
+      <ul class="max-h-40 overflow-y-auto space-y-2 pr-2">
+        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 1</li>
+        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 2</li>
+        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 3</li>
+        <!-- More repos here dynamically -->
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
