@@ -1,57 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub User Finder</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="script.js" defer></script>
-</head>
-<body class="bg-gradient-to-br from-indigo-500 to-purple-600 min-h-screen flex items-center justify-center p-4">
-  <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full text-center">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6">GitHub User Finder</h1>
-    
-    <form class="flex gap-2 mb-6">
-      <input type="text" placeholder="Enter GitHub username" required autofocus
-        class="username flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
-      <button type="submit"
-        class="submit bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
-        Search
-      </button>
-    </form>
-    
-    <div class="profile-card">
-      <img src="https://via.placeholder.com/120"
-           alt="Profile Picture"
-           class="w-28 h-28 rounded-full mx-auto shadow-lg mb-4 object-cover">
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">Username</h2>
-      
-      <div class="flex justify-around text-center text-gray-600 mb-4">
-        <div>
-          <span class="block text-lg font-bold text-indigo-500">0</span>
-          Followers
-        </div>
-        <div>
-          <span class="block text-lg font-bold text-indigo-500">0</span>
-          Following
-        </div>
-        <div>
-          <span class="block text-lg font-bold text-indigo-500">0</span>
-          Repos
-        </div>
-      </div>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub User Finder</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              glass: "rgba(255, 255, 255, 0.05)",
+            },
+            backdropBlur: {
+              xs: "2px",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="script.js" defer></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center justify-center px-4 sm:px-8 text-white font-sans"
+  >
+    <div
+      class="bg-glass backdrop-blur-sm rounded-2xl shadow-2xl p-4 sm:p-8 max-w-sm w-full border border-gray-700/50"
+    >
+      <h1 class="text-3xl font-bold text-white mb-6 tracking-wide">
+        🔍 GitHub User Finder
+      </h1>
+
+      <form class="flex-wrap md:flex-nowrap gap-3 mb-6">
+        <input
+          type="text"
+          placeholder="Enter GitHub username"
+          value="anamikamuskan"
+          required
+          autofocus
+          class="username flex-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400 mb-4 md:mb-0"
+        />
+        <button
+          type="submit"
+          class="submit bg-purple-600 hover:bg-purple-700 transition-colors text-white px-4 py-2 rounded-lg shadow-sm"
+        >
+          Search
+        </button>
+      </form>
+
+      <div class="profile-card text-center mb-6"></div>
+
+      <div class="repos text-left"></div>
     </div>
-    
-    <div class="repos text-left">
-      <h3 class="text-lg font-semibold text-gray-800 mb-2">Repositories</h3>
-      <ul class="max-h-40 overflow-y-auto space-y-2 pr-2">
-        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 1</li>
-        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 2</li>
-        <li class="bg-gray-100 px-3 py-2 rounded-lg text-sm text-gray-700">Repo 3</li>
-        <!-- More repos here dynamically -->
-      </ul>
-    </div>
-  </div>
-</body>
+
+    <style>
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #6b21a8; /* purple-800 */
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+    </style>
+  </body>
 </html>
