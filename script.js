@@ -46,42 +46,23 @@ function fillUserData(data) {
 }
 
 function fillRepoData(repos) {
-  if(repos.length) return `<p class="text-gray-400">No public repos found.</p>`
-  const listItems = repos
+if (!repos || repos.length === 0) {
+    return `<p class="text-gray-400">No public repos found.</p>`;
+  } 
+   const listItems = repos
   .map((repo)=>{
-    return 
-    `
+    return `
       <li class="bg-gray-800 px-4 py-2 rounded-lg text-sm text-gray-200 hover:bg-purple-600 transition">
         <a href='${repo.html_url}' target="_blank">${repo.name}</a>
       </li>
     `
-  })
+  }).join('')
 
-  return
-   `<h3 class="text-lg font-semibold text-white mb-3">📁 Repositories</h3>
+  return`<h3 class="text-lg font-semibold text-white mb-3">📁 Repositories</h3>
       <ul class="max-h-48 overflow-y-auto pr-2 space-y-2 custom-scrollbar">
         ${listItems}
       </ul>
   `;
-}
-function fillRepoData(repos) {
-  if (!repos || repos.length === 0) {
-    return `<p class="text-gray-400">No public repos found.</p>`;
-  }
-
-  return `
-    <h3 class="text-lg font-semibold text-white mb-3">📁 Repositories</h3>
-    <ul class="max-h-48 overflow-y-auto pr-2 space-y-2 custom-scrollbar">
-      ${repos
-        .slice(0, 5) // show top 5 repos
-        .map(
-          (repo) => `
-          <li class="bg-gray-800 px-4 py-2 rounded-lg text-sm text-gray-200 hover:bg-purple-600 transition">
-            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-          </li>`
-        )
-        .join("")}
-    </ul>`;
 }
 
 
